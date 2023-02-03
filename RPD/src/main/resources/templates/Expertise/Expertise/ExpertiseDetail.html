@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Показание</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerExpertise"></div>
+<div>
+    <div th:each="el: ${expertise}" >
+        <h1>Результат: </h1>
+        <p th:text="${el.result}"> </p>
+        <h1>Дата проведения: </h1>
+        <p th:text="${el.date_of_expertise}"> </p>
+        <h1>Относится к улике с описанием: </h1>
+        <p th:if="${el.clues}" th:text="${el.clues.description}"> </p>
+        <h1>Было использовано средство: </h1>
+        <p th:if="${el.expertise_tools}" th:text="${el.expertise_tools.expertisetool}"> </p>
+        <a th:href="'/Expertise/Expertise/ExpertiseEdit/' +${el.id}" class="btn btn-primary">Изменить</a><br>
+        <a th:href="'/Expertise/Expertise/ExpertiseDelete/' +${el.id}" class="btn btn-secondary">Удалить</a>
+    </div>
+    <a th:href="'/Expertise/Expertise/ExpertiseView'" class="btn btn-warning"> Назад</a>
+</div>
+</body>
+</html>

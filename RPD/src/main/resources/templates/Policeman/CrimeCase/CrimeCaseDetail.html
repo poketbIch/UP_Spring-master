@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавление сотрудника</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerPolice"></div>
+<div>
+  <div th:each="el: ${crimeCase}" >
+    <h1>Номер дела: </h1>
+    <p th:text="${el.number_of_case}"> </p>
+    <h1>Описание: </h1>
+    <p th:text="${el.description}"> </p>
+    <h1>Дата дела: </h1>
+    <p th:text="${el.date_of_case}"> </p>
+    <h1>Ведущий дела: </h1>
+   <p th:text="${el.employee.surname}"> </p>
+    Участники дела:
+      <div th:each="elp: ${crimeCase.getCaseParticipators()}" >
+          <p th:text="${elp.surname}"> </p>
+          <p th:text="${elp.name}"> </p>
+
+      </div>
+<br>
+    <a th:href="'/Policeman/CrimeCase/CrimeCaseEdit/' +${el.id}" class="btn btn-primary">Изменить</a><br>
+    <a th:href="'/Policeman/CrimeCase/CrimeCaseDelete/' +${el.id}" class="btn btn-secondary">Удалить</a>
+  </div>
+  <a th:href="'/Policeman/CrimeCase/CrimeCaseView'" class="btn btn-warning"> Назад</a>
+</div>
+</body>
+</html>

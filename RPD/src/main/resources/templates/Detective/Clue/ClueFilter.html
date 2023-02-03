@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <meta charset="UTF-8">
+  <title>Улики</title>
+</head>
+<body>
+<div th:insert="Header/header :: headerDetective"></div>
+<div class="row">
+
+  <h1>Список улик</h1>
+  <div th:each="el: ${clues}">
+    <a>Местонахождение</a>
+    <p th:text="${el.location}"> </p>
+    <a>Дата нахождения</a>
+    <p th:text="${el.date_of_find}"> </p>
+    <a th:href="'/Detective/Clue/ClueDetail/'+${el.id}" class="btn btn-primary">Подробней</a>
+  </div>
+  <form action="/Detective/Clue/ClueFilter" method="get">
+    <input type="text" name="search_name" placeholder="Поиск">
+    <input type="submit" placeholder="Найти" class="btn btn-success">
+  </form>
+  <form action="/Detective/Clue/ClueFilterNoCategory" method="get">
+    <input type="text" name="search_name" placeholder="Поиск (полное совпадение)">
+    <input type="submit" placeholder="Найти" class="btn btn-success">
+  </form>
+</div>
+<a href="/Detective/Clue/ClueAdd" class="btn btn-light">Добавить улику</a><br>
+</body>
+
+</html>

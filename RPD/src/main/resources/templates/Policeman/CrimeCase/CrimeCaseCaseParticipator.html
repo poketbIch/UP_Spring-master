@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Дела</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerPolice"></div>
+<form  method="post">
+  <select name="listCase">
+    <div th:each="element : ${listCase}" >
+
+      <option th:value="${element.description}" th:text="${element.number_of_case}"></option>
+
+    </div>
+
+  </select>
+  <select name="listParticipator">
+    <div th:each="element : ${listParticipator}" >
+
+      <option th:value="${element.surname}" th:text="${element.surname}"></option>
+
+    </div>
+
+  </select>
+  <input type="submit" value="Назначить к делу">
+  <a th:href="'/Policeman/CrimeCase/CrimeCaseView'" class="btn btn-warning"> Назад</a>
+</form>
+</body>
+</html>

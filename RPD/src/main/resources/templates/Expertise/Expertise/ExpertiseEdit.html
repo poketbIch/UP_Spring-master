@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Экспертиза</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerExpertise"></div>
+
+<form method="post" th:object="${expertise}">
+    <input th:field="*{result}"  type="text" placeholder="Результат" name="result"><br>
+    <div th:if="${#fields.hasErrors('result')}" th:errors="*{result}" style="color:red"></div><br>
+    <input th:field="*{date_of_expertise}"  type="text" placeholder="Дата проведения экспертизы " name="date_of_expertise"><br>
+    <div th:if="${#fields.hasErrors('date_of_expertise')}" th:errors="*{date_of_expertise}" style="color:red"></div><br>
+    <br>
+    <select name="expertiseTool">
+        <div th:each="element : ${expertiseTool}">
+            <option th:value="${element.id}" th:text="${element.expertisetool}"></option>
+        </div>
+    </select>
+    <br>
+    <select name="clues">
+        <div th:each="element : ${clues}">
+            <option th:value="${element.id}" th:text="${element.description}"></option>
+        </div>
+    </select>
+    <br>
+    <input  type="submit" value="Изменить Показание" class="btn btn-primary">
+    <a th:href="'/Expertise/Expertise/ExpertiseView'" class="btn btn-warning"> Назад</a>
+</form>
+</body>
+</html>

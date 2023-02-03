@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление сотрудника</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerHR"></div>
+<div>
+    <div th:each="el: ${employee}" >
+        <h1>Имя: </h1>
+        <p th:text="${el.name}"> </p>
+        <h1>Фамилия: </h1>
+        <p th:text="${el.surname}"> </p>
+        <h1>Отчество: </h1>
+        <p th:text="${el.patronymic}"> </p>
+        <h1>Логин: </h1>
+        <p th:text="${el.account.username}"> </p>
+        <h1>Должность: </h1>
+        <p th:if="${el.dolj}" th:text="${el.dolj.name}"> </p>
+        <h1>Участок: </h1>
+        <p th:if="${el.department}" th:text="${el.department.location}"> </p>
+        <a th:href="'/HR/EmployeeEdit/' +${el.id}" class="btn btn-primary">Изменить</a><br>
+        <a th:href="'/HR/EmployeeDelete/' +${el.id}" class="btn btn-secondary">Удалить</a>
+    </div>
+    <a th:href="'/HR/EmployeeView'" class="btn btn-warning"> Назад</a>
+</div>
+</body>
+</html>

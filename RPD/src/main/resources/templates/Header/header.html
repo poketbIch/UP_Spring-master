@@ -1,0 +1,153 @@
+<div th:fragment="headerMain">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Authorization/Login" class="nav-link px-2 text-secondary">Логин</a></li>
+          <li><a href="/Authorization/Registration" class="nav-link px-2 text-secondary">Регистрация</a></li>
+          <li><a href="/PoliceMan/CrimeCaseView" class="nav-link px-2 text-secondary">Дела</a></li>
+          <li><a href="/Admin/AccountView" class="nav-link px-2 text-secondary">Контроль аккаунтов</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+
+<div th:fragment="headerAdmin">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Admin/AccountView" class="nav-link px-2 text-secondary">Аккаунты</a></li>
+
+
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+<div th:fragment="headerBase">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Admin/AccountView" class="nav-link px-2 text-secondary">Аккаунты</a></li>
+          <li><a href="/Policeman/CrimeCase/CrimeCaseView" class="nav-link px-2 text-secondary">Дела</a></li>
+          <li><a href="/HR/DepartmentView" class="nav-link px-2 text-secondary">Участки и сотрудники</a></li>
+          <li><a href="/Detective/Testimony/TestimonyView" class="nav-link px-2 text-secondary">Улики и показания</a></li>
+          <li><a href="/Expertise/Expertise_Tool/Expertise_ToolView" class="nav-link px-2 text-secondary">Экспертиза</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+<div th:fragment="headerHR">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Admin/AccountView" class="nav-link px-2 text-secondary">Аккаунты</a></li>
+          <li><a href="/HR/DepartmentView" class="nav-link px-2 text-secondary">Участки</a></li>
+          <li><a href="/HR/EmployeeView" class="nav-link px-2 text-secondary">Сотрудники</a></li>
+          <li><a href="/HR/DoljView" class="nav-link px-2 text-secondary">Должности</a></li>
+          <li><a href="/HR/AdressView" class="nav-link px-2 text-secondary">Адресса</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+<div th:fragment="headerPolice">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Policeman/CrimeCase/CrimeCaseView" class="nav-link px-2 text-secondary">Дела</a></li>
+          <li><a href="/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryView" class="nav-link px-2 text-secondary">Категории участников дел</a></li>
+          <li><a href="/Policeman/CaseParticipator/CaseParticipatorView" class="nav-link px-2 text-secondary">Участники дел</a></li>
+
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+
+<div th:fragment="headerDetective">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Detective/Testimony/TestimonyView" class="nav-link px-2 text-secondary">Показания</a></li>
+          <li><a href="/Detective/Clue/ClueView" class="nav-link px-2 text-secondary">Улики</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+<div th:fragment="headerExpertise">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Expertise/Expertise_Tool/Expertise_ToolView" class="nav-link px-2 text-secondary">Средства экспертизы</a></li>
+          <li><a href="/Expertise/Expertise/ExpertiseView" class="nav-link px-2 text-secondary">Экспертизы</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>

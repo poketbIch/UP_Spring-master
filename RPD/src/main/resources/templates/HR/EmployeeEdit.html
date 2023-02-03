@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerHR"></div>
+
+<form method="post" th:object="${employees}">
+    <input th:field="*{name}"  type="text" placeholder="Имя " th:value="${employee.name}" name="name"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></div><br>
+    <input th:field="*{surname}"  type="text" placeholder="Фамилия " th:value="${employee.surname}" name="surname"><br>
+    <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" style="color:red"></div><br>
+    <input th:field="*{patronymic}"  type="text" placeholder="Отчество " th:value="${employee.patronymic}" name="patronymic"><br>
+    <div th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}" style="color:red"></div><br>
+    <input th:value="${employees.getAccount().getId()}" name="account" type="hidden" ><br>
+
+    <select name="dolj">
+        <div th:each="element : ${dolj}">
+            <option th:value="${element.id}" th:text="${element.name}"></option>
+        </div>
+    </select>
+    <br>
+    <select name="department">
+        <div th:each="ep : ${department}">
+            <option th:value="${ep.id}" th:text="${ep.location}"></option>
+        </div>
+    </select>
+    <br>
+    <input  type="submit" value="Изменить Сотрудника" class="btn btn-primary">
+    <a th:href="'/HR/EmployeeView'" class="btn btn-warning"> Назад</a>
+</form>
+</body>
+</html>

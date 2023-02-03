@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Дело</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="Header/header :: headerPolice"></div>
+
+<form method="post" th:object="${crimeCase}">
+  <input th:field="*{number_of_case}"  type="number" placeholder="Номер дела " name="number_of_case"><br>
+  <div th:if="${#fields.hasErrors('number_of_case')}" th:errors="*{number_of_case}" style="color:red"></div><br>
+  <input th:field="*{description}"  type="text" placeholder="Описание дела " name="description"><br>
+  <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color:red"></div><br>
+  <input th:field="*{date_of_case}"  type="text" placeholder="Дата дела " name="date_of_case"><br>
+  <div th:if="${#fields.hasErrors('date_of_case')}" th:errors="${date_of_case}" style="color:red"></div><br>
+  <a>Ведущий делом:</a>
+  <select name="employee">
+    <div th:each="element : ${employees}">
+      <option th:value="${element.id}" th:text="${element.surname}"></option>
+    </div>
+  </select>
+
+  <br>
+  <input  type="submit" value="Изменить Дело" class="btn btn-primary">
+  <a th:href="'/Policeman/CrimeCase/CrimeCaseView'" class="btn btn-warning"> Назад</a>
+</form>
+</body>
+</html>

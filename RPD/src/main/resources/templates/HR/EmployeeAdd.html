@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="Header/header :: headerHR"></div>
+<form method="post" th:object="${employee}">
+    <input th:field="*{name}"  type="text" placeholder="Имя " name="name"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></div><br>
+    <input th:field="*{surname}"  type="text" placeholder="Фамилия " name="surname"><br>
+    <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" style="color:red"></div><br>
+    <input th:field="*{patronymic}"  type="text" placeholder="Отчество " name="patronymic"><br>
+    <input th:field="${account.username}" type="text" placeholder="Логин" name="nickname"><br>
+    <!--    <div th:if="${#fields.hasErrors('login')}" th:errors="${account.login}" style="color:red"></div><br>-->
+    <input th:field="${account.password}" type="password" placeholder="Пароль" name="description_user"><br>
+    <!--    <div th:if="${#fields.hasErrors('password')}" th:errors="${account.password}" style="color:red"></div><br>-->
+    <input th:field="${account.email}" type="email" placeholder="Email" name="email"><br>
+    <!--    <div th:if="${#fields.hasErrors('password')}" th:errors="${account.password}" style="color:red"></div><br>-->
+    <select name="listDolj">
+        <div th:each="element : ${listDolj}">
+            <option th:value="${element.id}" th:text="${element.name}"></option>
+        </div>
+    </select>
+    <br>
+    <select name="listDepartment">
+        <div th:each="element : ${listDepartment}">
+            <option th:value="${element.id}" th:text="${element.location}"></option>
+        </div>
+    </select>
+
+<br>
+    <input type="submit" value="Добавить сотрудника" class="btn btn-success">
+    <a th:href="'/HR/EmployeeView'" class="btn btn-warning"> Назад</a>
+</form>
+</body>
+</html>
